@@ -9,6 +9,13 @@
       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
+
     <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css" />
     <link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml" />
 
@@ -16,35 +23,67 @@
   </head>
 
   <body>
-    <div class="wrapper-masthead">
-      <div class="container">
-        <header class="masthead clearfix">
-          <a href="{{ site.baseurl }}/" class="site-avatar"><img src="{{ site.avatar }}" /></a>
 
-          <div class="site-info">
-            <h1 class="site-name"><a href="{{ site.baseurl }}/">{{ site.name }}</a></h1>
-            <p class="site-description">{{ site.description }}</p>
-          </div>
+    <nav class="navbar navbar-expand-md navbar-light sticky-top">
+    
+        <!-- Toggler/collapsibe Button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <i class="fas fa-lg fa-bars"></i>
+        </button>
 
-          <nav>
-            <a href="{{ site.baseurl }}/">Blog</a>
-            <a href="{{ site.baseurl }}/about">About</a>
-          </nav>
-        </header>
-      </div>
-    </div>
+        <a class="navbar-brand mr-auto" href="{{ site.baseurl }}/"><img src="{{ site.baseurl }}images/logo-white.png" alt="logo"></a>
 
+        <!-- Navbar links -->
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav ml-auto">
+            <li class="nav-item mx-auto">
+                <a class="nav-link" href="{{ site.baseurl }}/about">About</a>
+            </li>
+            <li class="nav-item mx-auto">
+                <a class="nav-link" href="{{ site.baseurl }}/blog">Blog</a>
+            </li>
+            <li class="nav-item mx-auto">
+                <a class="nav-link" href="{{ site.baseurl }}/contact">Contact</a>
+            </li> 
+            </ul>
+        </div> 
+    </nav><!-- /.navbar.sticky-top -->
+
+    <header class="masthead home">
+        <section class="container-fluid row">
+            <div class="col-xs-12 col-sm-8 mx-auto p-3">
+                <h1 class="text-center">Leave an impression</h1>
+                <hr class="divider-inverse">
+                <h2 class="text-center">A website says a thousand words.</h2>
+            </div>
+        </section>
+    </header><!-- .masthead-->
+
+    <!-- Down Icon -->
+    <a href="#content" class="down-icon"><i class="fas fa-lg fa-chevron-down p-3"></i></a>
+ 
     <div id="main" role="main" class="container">
       {{ content }}
     </div>
 
-    <div class="wrapper-footer">
-      <div class="container">
-        <footer class="footer">
-          {% include svg-icons.html %}
-        </footer>
-      </div>
-    </div>
+    <footer class="container-fluid">
+
+        <section class="row">
+            <div class="col-xs-8">
+                <p>&copy; 2018 McKenna Schaller</p>
+            </div>
+            <div class="social-links ml-auto">
+                <div class="col-xs-4">
+                    <a href="https://www.linkedin.com/in/mckenna-schaller/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/mkschaller" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://instagram.com/mckenna.schaller" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </section>
+    </footer>
+
+    <script src="js/masonry.min.js"></script>
+    <script src="js/main.js"></script>
 
     {% include analytics.html %}
   </body>

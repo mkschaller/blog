@@ -1,0 +1,463 @@
+
+// Font families
+$heading-font: 'Montserrat', sans-serif;
+$body-font: 'Open Sans', sans-serif;
+
+// Monocromatic colors
+$white: #fff;
+$black: #000;
+$gray-lighter: darken($white, 5%);
+$gray-light: darken($white, 15%);
+$gray: darken($white, 30%);
+$gray-dark: lighten($black, 30%);
+$gray-darker: lighten($black, 15%);
+$gray-darkest: lighten($black, 5%);
+
+// Site colors
+$primary: #15958a;
+$secondary: #396a80;
+
+// Extra variables
+$header-bkg: url('../images/watercolor-dark.jpg') center center fixed;
+$watercolor-light-bkg: url('../images/watercolor-light.jpg') center center fixed;
+$texture-background: url('../images/texture-gray.jpg') center center fixed;
+$text-shadow-light: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24),
+                    0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); 
+$text-shadow: 0 0 5px rgba($gray-darker, .5),
+                    1px 1px 9px rgba($gray-darker, .5),
+                    0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24),
+                    0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); 
+
+
+///// General //////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+
+body {
+    background: $white;
+    color: $gray-darker;
+    font-family: $body-font;
+    font-size: 16px;
+    line-height: 1.6;
+    font-weight: 200;
+}
+
+p, span {
+    font-family: $body-font;
+}
+
+a {
+    color: $primary;
+    text-decoration: none;
+    &:hover, &:active {
+        color: $secondary;
+        text-decoration: none;
+    }
+}
+
+// underline links but not clickable images, icons, etc.
+p a, h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, span a, main li a {
+    border-bottom: 2px solid rgba($primary, .25);
+    
+    &:hover, &:active {
+        border-bottom: 0;
+    }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $heading-font;
+}
+
+h1 {
+    font-size: 2.25rem; // override bootstrap size
+}
+
+h1, h4 {
+    font-weight: 200;
+    color: $primary;
+}
+
+h2, h5 {
+    color: $secondary;
+    font-family: $body-font;
+    font-weight: 200;
+}
+
+h3, h6, .subtitle {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+blockquote {
+    background: $gray-lighter;
+    color: $secondary;
+    font-size: 1.2em;
+    padding: 1em;
+    margin: 1em auto;
+    border-left: 1em solid $primary;
+
+}
+
+.space-top {
+    margin-top: 2rem;
+    padding-top: 1rem;
+}
+
+.btn {
+    font-weight: 400;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-family: $heading-font;
+
+    i {
+        padding-left: 5px;
+    }
+
+    &:hover {
+        transition: all 0.2s linear 0s;
+
+        i {
+            padding-left: 10px;
+            display: inline-block;
+            transition: all 0.1s linear 0s;
+        }
+    }
+
+}
+
+// buttons
+
+.btn-outline-primary {
+    border-color: $secondary;
+    color: $secondary;
+
+    &:hover {
+        background: $secondary;
+    }
+}
+
+.btn-primary {
+    border-color: $primary;
+    color: $gray-lighter;
+    background: $primary;
+
+    &:hover {
+        background: $secondary;
+    }
+}
+
+.btn {
+    margin: auto;
+}
+
+@media screen and (min-width: 768px) {
+    .btn {
+        margin: initial;
+    }
+}
+
+
+// dividers
+
+.divider-center {
+    max-width: 100px;
+    border-top: 2px solid rgba($primary, .5);
+}
+
+.divider-left {
+    max-width: 100px;
+    margin-left: 0;
+    margin-right: 0;
+    border-top: 2px solid rgba($primary, .5);
+}
+
+.divider-inverse {
+    max-width: 100px;
+    border-top: 2px solid rgba($gray-lighter, .5);
+}
+
+///// Header & Navigation //////////////////////////////////////
+////////////////////////////////////////////////////////////////
+
+header {
+    min-height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 1.3em;
+}
+
+.masthead {
+    h1 {
+        font-family: $heading-font;
+        text-transform: uppercase;
+        font-weight: 600;
+        color: $gray-lighter;
+        letter-spacing: 2px;
+        text-shadow: $text-shadow;
+    }
+    h2 {
+        font-family: $body-font;
+        font-weight: 200;
+        color: $white;
+        font-size: 1.2em;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        // text-shadow: $text-shadow;
+    }
+    
+}
+
+.masthead, .sticky-top {
+    background: $header-bkg;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+// nav styles before scroll
+.sticky-top  {
+    .navbar-nav .nav-link, .navbar-nav .nav-link:focus {
+        color: $white;
+        font-family: $heading-font;
+        font-weight: 400;
+        letter-spacing: 1px;
+        transition: all 0.2s linear 0s;
+
+        &:hover, &:active {
+            color: $gray-lighter;
+        }
+    }
+}
+
+// nav styles on scroll
+.scrolled {
+    background: rgba($gray-lighter, .9);
+    display: flex !important;
+
+    img {
+        background: none;
+    }
+
+    .navbar-nav .nav-link {
+        color: $primary;
+        text-shadow: none;
+
+        &:hover, &:active, &:focus {
+            color: $secondary !important;
+        }
+    }
+}
+
+.navbar-brand img {
+    max-height: 50px;
+    margin-left: 10px;
+}
+
+// navbar hamburger menu
+.navbar-light .navbar-toggler {
+    border: 0px solid transparent;
+}
+
+.fa-bars {
+    color: $white;
+}
+
+.scrolled .fa-bars {
+    color: $primary;
+}
+
+// down icon 
+.down-icon {
+    display: flex;
+    justify-content: center;
+}
+
+.fa-chevron-down {
+    color: $white;
+    background: $primary;
+    border-radius: 100%;
+    border: 4px solid $white;
+    margin-top: -25px;
+    transition: all 0.2s linear 0s;
+    &:hover {
+        color: $gray-lighter;
+        background: $secondary;
+    }
+}
+
+///// Main /////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+main {
+    background: $white;
+}
+
+.cta-contact {
+    background: $watercolor-light-bkg;
+    // color: $secondary;
+    border-radius: 0;
+    margin: 1em auto;
+    padding: 5em;
+
+    h1 {
+        font-family: $heading-font;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    p {
+        // max-width: 600px;
+        display: block;
+        margin: 10px auto;
+        font-size: 1.2em;
+    }
+
+    .btn {
+        margin-top: 2em;
+    }
+
+}
+
+///// Blog Posts /////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+
+// Recent posts
+
+#recent {
+    background: $gray-lighter;
+    padding-bottom: 3em;
+    margin-top: 5px;
+    min-height: 200px;
+
+    h2 {
+        font-family: $heading-font;
+        margin-top: 10px;
+        text-align: center;
+    }
+
+}
+
+.featured-posts {
+    margin-top: -8em;
+    margin-bottom: 3.5em;
+
+    img {
+        text-align: center;
+        margin: auto;
+        border-radius: 100%;
+        display: block;
+        padding: 1em;
+        max-height: 250px;
+    }
+
+    h3 {
+        margin-top: 1em;
+        font-size: 24px;
+        text-transform: initial;
+        letter-spacing: 0;
+    }
+
+    p {
+        clear: both;
+    }
+
+    .btn {
+        margin: 1em auto;
+    }
+}
+
+.sidebar {
+    margin-bottom: 2em;
+    margin-top: 2em;
+    padding-top: 1em;
+
+    ul {
+        list-style-type: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-left: 0;
+    }
+
+    .sidebar-section {
+        border-top: 10px solid $gray-lighter;
+        padding-top: 1em;
+        padding-bottom: 1em;
+    }
+    
+    .social-links {
+        i {
+            margin-right: 10px;
+        }
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .sidebar {
+        transition: all 1s linear 0s;
+        padding-top: 0;
+        padding-left: 1em;
+        margin-top: 0;
+    }
+
+    .blog-content {
+        padding-right: 3em;
+        padding-bottom: 1em;
+    }
+
+    .excerpt {
+        padding-bottom: 1em;
+    }
+    
+}
+
+.metadata {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 14px;
+}
+
+.featured-image {
+    display: block;
+    width: auto;
+    max-height: 250px;
+    margin: -7.5em auto 1em auto;
+    border-radius: 100%;
+    border: 4px solid #fff;
+}
+
+///// Footer ///////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+footer {
+    color: $gray;
+    padding: 2rem 3rem 1rem 3rem !important;
+
+    .social-links {
+        a {
+            color: $gray;
+            margin-left: 10px;
+
+            &:hover {
+                color: $gray-dark;
+            }
+        }
+    }
+}
+
+///// Tablet Screen ////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+@media screen and (min-width: 768px) {
+    header.home, header.category{
+        min-height: 250px;
+    }
+}
+
+///// Medium Screen ////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+@media screen and (min-width: 992px) {
+
+}
+
+///// Large Screen /////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+@media screen and (min-width: 1200px) {
+
+}
